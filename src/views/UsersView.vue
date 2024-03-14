@@ -10,7 +10,7 @@
         <div v-if="users.length > 0">
           <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col" v-for="user in users" :key="user.id">
-              <UserCard :user="user" @view-user="viewUser"/>
+              <UserCard :user="user" @view-user="viewUser(user)"/>
             </div>
           </div>
         </div>
@@ -38,6 +38,6 @@ const users = computed(() => store.state.users);
 
 function viewUser(user) {
   // Navigate to UserDetails view with the user ID as a parameter
-  router.push({ name: 'UserDetails', params: { id: user.id } });
+  router.push({ name: 'UserDetailsView', params: { id: user.id } });
 }
 </script>
